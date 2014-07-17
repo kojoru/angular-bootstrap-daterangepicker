@@ -48,7 +48,7 @@ var link = function($scope, $element, $attributes, ngModel, $compile, $parse){
 
     $element.daterangepicker(options, function(start, end) {
         $scope.$apply(function () {
-            ngModel.$setViewValue({ startDate: start.toDate(), endDate: end.toDate() });
+            ngModel.$setViewValue({ startDate: start.toDate().setHours(0, 0, 0), endDate: end.toDate().setHours(23, 59, 59) });
         });
     });
 };
